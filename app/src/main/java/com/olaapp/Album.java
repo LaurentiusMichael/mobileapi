@@ -5,7 +5,7 @@ package com.olaapp;
  */
 public class Album {
 
-String song,url,artists,cover_image;
+String song,url,artists,cover_image,x;
 
 
 
