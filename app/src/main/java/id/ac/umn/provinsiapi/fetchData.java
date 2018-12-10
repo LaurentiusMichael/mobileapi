@@ -38,8 +38,8 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
             JSONArray JA = new JSONArray(data);
             for(int i =0 ;i <JA.length(); i++){
                 JSONObject JO = (JSONObject) JA.get(i);
-                singleParsed =  "id:" + JO.get("id") + "\n"+
-                        "nama:" + JO.get("nama") + "\n";
+                singleParsed =  "id:" + JO.get("song") + "\n"+
+                        "nama:" + JO.get("url") + "\n";
 
                 dataParsed = dataParsed + singleParsed +"\n" ;
 
