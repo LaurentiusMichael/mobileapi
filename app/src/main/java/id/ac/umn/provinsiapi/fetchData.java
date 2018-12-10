@@ -37,11 +37,15 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
                 data = data + line;
             }
 
-            JSONArray JA = new JSONArray(data);
-            for(int i =0 ;i <JA.length(); i++){
-                JSONObject JO = (JSONObject) JA.get(i);
-                singleParsed =  "song:" + JO.get("song") + "\n"+
-                        "url:" + JO.get("url") + "\n";
+            //JSONArray JA = new JSONArray(data);
+            JSONObject jObject = new JSONObject(data);
+            JSONArray jarray = jObject.getJSONArray("semuaprovinsi");
+            //JSONObject provObject = jObject.getJSONObject("semuaprovinsi");
+            for(int i =0 ;i <jarray.length(); i++){
+                //String attributeId = provObject.getString("category");
+                JSONObject JO = (JSONObject) jarray.get(i);
+                singleParsed =  "id:" + JO.get("id") + "\n"+
+                        "nama:" + JO.get("nama") + "\n";
 
                 dataParsed = dataParsed + singleParsed +"\n" ;
 
@@ -61,7 +65,6 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-
         MainActivity.data.setText(this.dataParsed);
 
     }
